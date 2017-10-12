@@ -1,0 +1,16 @@
+service:
+  name: aws-nodejs-typescript
+
+# Add the serverless-webpack plugin
+plugins:
+  - serverless-webpack
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+
+functions:
+  highwater_10x:
+    handler: handler.highwater_10x
+    events:
+      - schedule: cron(30 3 * * * *)
